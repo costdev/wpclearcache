@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Name:        WP Clear Cache
+# Description: Frees reclaimable slab objects (includes dentries and inodes) when WordPress updates a plugin or theme.
+# Author:      WordPress Core Contributors
+# Author URI:  https://make.wordpress.org/core
+# License:     GPLv2 or later
+# Version:     1.0.0
+#
+# Usage:
+#  1. Set WP_CONTENT_DIR to the path for the wp-content directory, no trailing slash.
+#
+#  2. This script should be run continuously.
+#     It is advised to use the following command:
+#     ./wpclearcache.sh &
+
+WP_CONTENT_DIR="/vagrant/content"
+
+while :
+do
+  if [ -f "$WP_CONTENT_DIR/.wpclearcache" ]; then
+    sudo sh -c 'echo 2 > /proc/sys/vm/drop_caches'
+  fi
+
+  # Wait 200ms.
+  sleep 0.2s
+done
