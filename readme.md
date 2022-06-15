@@ -14,6 +14,10 @@ The extension adds a Must-Use plugin to the WordPress installation, and runs a w
 
 This extension was created by WordPress Core Contributors to resolve a filesystem issue within VirtualBox after using the PHP native `rename()` function.
 
+More details on the VirtualBox issue:
+- https://www.virtualbox.org/ticket/8761#comment:24
+- https://www.virtualbox.org/ticket/17971
+
 ## Installation
 
 1. Add the following to your `config.yaml` file:
